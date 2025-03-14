@@ -6,6 +6,12 @@
   "tags": [],
   "targets": {
     "build": {
+      "dependsOn": [
+        {
+          "target": "generate-types",
+          "projects": "jobber"
+        }
+      ],
       "executor": "nx:run-commands",
       "options": {
         "command": "webpack-cli build",
@@ -32,6 +38,18 @@
         "production": {
           "buildTarget": "jobber:build:production"
         }
+      }
+    },
+    "generate-types": {
+      "command": "prisma generate",
+      "options": {
+        "cwd": "apps/jobber"
+      }
+    },
+    "migrate-prisma" : {
+      "command": "prisma migrate dev ",
+      "options": {
+        "cwd": "apps/jobber"
       }
     },
     "test": {

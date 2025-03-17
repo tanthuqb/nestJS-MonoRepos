@@ -37,7 +37,7 @@
       "dependsOn": ["build"],
       "options": {
         "buildTarget": "jobber:build",
-        "runBuildTargetDependencies": false
+        "runBuildTargetDependencies": true
       },
       "configurations": {
         "development": {
